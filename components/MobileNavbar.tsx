@@ -19,7 +19,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 export function MobileNavbar() {
