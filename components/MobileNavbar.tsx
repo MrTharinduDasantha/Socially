@@ -1,6 +1,6 @@
 "use client";
 
-import { SignInButton, SignOutButton, useAuth } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useAuth, useUser } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -19,12 +19,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 
 export function MobileNavbar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { isSignedIn } = useAuth();
   const { theme, setTheme } = useTheme();
+
+  const { user } = useUser();
   return (
     <div className="flex md:hidden items-center space-x-2">
       <Button
@@ -55,7 +58,7 @@ export function MobileNavbar() {
               className="flex items-center justify-start gap-3"
               asChild
             >
-              <Link href="/">
+              <Link href="/" onClick={() => setShowMobileMenu(false)}>
                 <HomeIcon className="w-4 h-4" />
                 Home
               </Link>
@@ -68,7 +71,10 @@ export function MobileNavbar() {
                   className="flex items-center justify-start gap-3"
                   asChild
                 >
-                  <Link href="/notifications">
+                  <Link
+                    href="/notifications"
+                    onClick={() => setShowMobileMenu(false)}
+                  >
                     <BellIcon className="w-4 h-4" />
                     Notifications
                   </Link>
@@ -78,7 +84,10 @@ export function MobileNavbar() {
                   className="flex items-center justify-start gap-3"
                   asChild
                 >
-                  <Link href="/profile">
+                  <Link
+                    href={`/profile/${user?.username ?? user?.emailAddresses[0].emailAddress.split("@")[0]}`}
+                    onClick={() => setShowMobileMenu(false)}
+                  >
                     <BellIcon className="w-4 h-4" />
                     Profile
                   </Link>
