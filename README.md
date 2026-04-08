@@ -104,9 +104,9 @@ npm run dev
 
 **4. Follow Users:** Visit any user's profile and click "Follow" to see their posts.
 
-**4. Manage Profile:** Edit your profile picture, bio, and personal details.
+**5. Manage Profile:** Edit your profile picture, bio, and personal details.
 
-**5. Responsive Experience:** Access all features seamlessly on mobile, tablet, or desktop.
+**6. Responsive Experience:** Access all features seamlessly on mobile, tablet, or desktop.
 
 ---
 
