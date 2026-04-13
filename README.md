@@ -60,12 +60,14 @@ Clone the repository and navigate to the project folder to install dependencies.
 ```
 
 **1. Install Dependencies**
+
 Install all required packages for the application:
 ```bash
 npm install
 ```
 
 **2. Database Setup (Neon & Prisma)**
+
 Sync your Prisma schema with your Neon PostgreSQL database:
 ```bash
 npx prisma generate
@@ -73,6 +75,7 @@ npx prisma db push
 ```
 
 **3. Environment Variables**
+
 Create a .env file in the root directory of your project. Add the following configuration variables to connect to Clerk, your Neon database, and UploadThing:
 ```bash
 # Clerk configuration
@@ -88,6 +91,7 @@ UPLOADTHING_TOKEN = "Enter your uploadthing token"
 ```
 
 **4. Run the Application**
+
 Start the Next.js development server:
 ```bash
 npm run dev
